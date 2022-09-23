@@ -19,7 +19,10 @@ class ProductDetailPage extends StatefulWidget {
 class ProductDetailPageState extends State<ProductDetailPage> {
   final ProductDetailStore store = Modular.get();
 
-  Widget buildCircle({required Function() onPress, required IconData icon, required Color color}) {
+  Widget buildCircle(
+      {required Function() onPress,
+      required IconData icon,
+      required Color color}) {
     return ElevatedButton(
       onPressed: onPress,
       child: Icon(
@@ -51,7 +54,7 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                   height: size.height * .6,
                   width: size.width * .5,
                   decoration: const BoxDecoration(
-                    color: RoundColor.lightPink,
+                    color: RoundColor.red,
                     borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(25),
                     ),
@@ -73,7 +76,8 @@ class ProductDetailPageState extends State<ProductDetailPage> {
               SafeArea(
                 child: Container(
                   width: size.width,
-                  margin: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -107,13 +111,24 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                 children: [
                   Text(
                     widget.args.name,
-                    style: GoogleFonts.poppins(fontSize: 36, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 36, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    '\$ 79.90',
-                    style: GoogleFonts.poppins(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.grey.shade500),
+                    widget.args.prophecy,
+                    style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey),
                   ),
                   const SizedBox(height: 15),
+                  Text(
+                    'Prophecy profits',
+                    style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 61, 187, 61)),
+                  ),
                   SizedBox(
                     width: 200,
                     height: 50,
@@ -121,45 +136,28 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                       children: [
                         Align(
                             alignment: Alignment.centerLeft,
-                            child: buildCircle(icon: FontAwesomeIcons.minus, onPress: store.decrement, color: RoundColor.pink.withOpacity(.7))),
+                            child: buildCircle(
+                                icon: FontAwesomeIcons.minus,
+                                onPress: store.decrement,
+                                color: RoundColor.pink.withOpacity(.7))),
                         Center(
                           child: ValueListenableBuilder(
                             valueListenable: store.qty,
                             builder: (context, value, child) => Text(
                               store.qty.value.toString(),
-                              style: GoogleFonts.poppins(fontSize: 22, fontWeight: FontWeight.bold),
+                              style: const TextStyle(
+                                  fontSize: 22, fontWeight: FontWeight.bold),
                             ),
                           ),
                         ),
                         Align(
                             alignment: Alignment.centerRight,
-                            child: buildCircle(icon: FontAwesomeIcons.plus, onPress: store.increment, color: RoundColor.pink)),
+                            child: buildCircle(
+                                icon: FontAwesomeIcons.plus,
+                                onPress: store.increment,
+                                color: RoundColor.pink)),
                       ],
                     ),
-                  ),
-                  const SizedBox(height: 15),
-                  Row(
-                    children: [
-                      Row(
-                        children: List.generate(
-                          5,
-                          (index) => const FaIcon(
-                            FontAwesomeIcons.solidStar,
-                            color: Colors.amber,
-                            size: 14,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 20),
-                      Text(
-                        '5',
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey.shade600,
-                          fontSize: 18,
-                        ),
-                      )
-                    ],
                   ),
                 ],
               ),
@@ -173,16 +171,20 @@ class ProductDetailPageState extends State<ProductDetailPage> {
           children: [
             Expanded(
               child: PinkButtonWidget(
-                color: RoundColor.lightPink,
+                color: RoundColor.black,
                 height: 56,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Text('Add to cart', style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w700, color: Colors.black)),
+                    Text('True',
+                        style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white)),
                     const Icon(
-                      IconlyBroken.buy,
+                      IconlyBroken.shield_done,
                       size: 22,
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                   ],
                 ),
@@ -193,11 +195,22 @@ class ProductDetailPageState extends State<ProductDetailPage> {
             Expanded(
               child: PinkButtonWidget(
                 height: 56,
-                child: Text('Buy now',
-                    style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                    )),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text('False',
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
+                        )),
+                    const Icon(
+                      IconlyBroken.shield_fail,
+                      size: 22,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
                 onPressed: () {},
               ),
             ),

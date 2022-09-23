@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 import 'package:squidgame/app/core/widget/button/pink_button_widget.dart';
 
@@ -10,7 +9,12 @@ class RecommendedCardWidget extends StatelessWidget {
 
   final VoidCallback onPressed;
 
-  const RecommendedCardWidget({Key? key, required this.onPressed, required this.image, required this.name}) : super(key: key);
+  const RecommendedCardWidget(
+      {Key? key,
+      required this.onPressed,
+      required this.image,
+      required this.name})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -67,20 +71,16 @@ class RecommendedCardWidget extends StatelessWidget {
                         children: [
                           Text(
                             name,
-                            style: GoogleFonts.poppins(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
                           ),
-                          Icon(
-                            IconlyBold.star,
-                            color: Colors.amber,
-                          )
+                          // Icon(
+                          //   IconlyBold.star,
+                          //   color: Colors.amber,
+                          // )
                         ],
                       ),
                       const SizedBox(height: 6),
                       PinkButtonWidget(
-                        child: Text('View detail', style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.bold)),
+                        child: Text('View detail'),
                         onPressed: onPressed,
                       )
                     ],

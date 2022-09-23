@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconly/iconly.dart';
+import 'package:squidgame/app/core/round_colors.dart';
 import 'package:squidgame/app/modules/home/presenter/components/running_drop_widget.dart';
+import 'package:squidgame/app/modules/product_detail/presenter/product_detail_arguments.dart';
 
 class NavBarWidget extends StatefulWidget {
   const NavBarWidget({
@@ -12,7 +15,8 @@ class NavBarWidget extends StatefulWidget {
   _NavBarWidgetState createState() => _NavBarWidgetState();
 }
 
-class _NavBarWidgetState extends State<NavBarWidget> with TickerProviderStateMixin {
+class _NavBarWidgetState extends State<NavBarWidget>
+    with TickerProviderStateMixin {
   int _previousIndex = 0;
   int selectedIndex = 0;
 
@@ -61,6 +65,16 @@ class _NavBarWidgetState extends State<NavBarWidget> with TickerProviderStateMix
         });
       }
     });
+    if (selectedIcons[index] == IconlyBold.setting) {
+      Modular.to.pushNamed(
+        '/product/create',
+        arguments: ProductDetailArguments(
+          name: '',
+          assetImage: '',
+          prophecy: '',
+        ),
+      );
+    }
   }
 
   @override
@@ -122,8 +136,8 @@ class _NavBarWidgetState extends State<NavBarWidget> with TickerProviderStateMix
                                       end: Alignment.bottomCenter,
                                       stops: [0.0, .6],
                                       colors: [
-                                        Color(0xffe84280).withOpacity(.2),
-                                        Color(0xffe84280),
+                                        RoundColor.red.withOpacity(.2),
+                                        RoundColor.red,
                                       ],
                                     ),
                                     shape: BoxShape.circle,
@@ -133,7 +147,9 @@ class _NavBarWidgetState extends State<NavBarWidget> with TickerProviderStateMix
                             ),
                           ),
                         ),
-                        Center(child: buildIcon(selectedIcons[index], Colors.white)),
+                        Center(
+                            child:
+                                buildIcon(selectedIcons[index], Colors.white)),
                       ],
                     );
                   }
@@ -146,7 +162,9 @@ class _NavBarWidgetState extends State<NavBarWidget> with TickerProviderStateMix
                         color: Colors.transparent,
                         shape: BoxShape.circle,
                       ),
-                      child: Center(child: buildIcon(unselectedIcons[index], Colors.black54)),
+                      child: Center(
+                          child: buildIcon(
+                              unselectedIcons[index], Colors.black54)),
                     ),
                   );
                 },

@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 
 class RecentOrderCardWidget extends StatelessWidget {
   final String title;
   final String asset;
-  const RecentOrderCardWidget({Key? key, required this.asset, required this.title}) : super(key: key);
+  const RecentOrderCardWidget(
+      {Key? key, required this.asset, required this.title})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
         height: 100,
-        width: 220,
+        width: 250,
         child: Card(
           shadowColor: Colors.black.withOpacity(.3),
           elevation: 8,
@@ -44,14 +45,14 @@ class RecentOrderCardWidget extends StatelessWidget {
                     ),
                     Text(
                       title,
-                      style: GoogleFonts.poppins(
+                      style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
                       '1 item',
-                      style: GoogleFonts.poppins(
+                      style: const TextStyle(
                         fontSize: 14,
                       ),
                     ),
@@ -60,10 +61,12 @@ class RecentOrderCardWidget extends StatelessWidget {
                       children: [
                         Text(
                           'View details',
-                          style: GoogleFonts.poppins(fontSize: 14, color: Colors.black54),
+                          style: const TextStyle(
+                              fontSize: 14, color: Colors.black54),
                         ),
                         const SizedBox(width: 6),
-                        Icon(IconlyLight.arrow_right, size: 14, color: Colors.black54)
+                        Icon(IconlyLight.arrow_right,
+                            size: 14, color: Colors.black54)
                       ],
                     ),
                   ],

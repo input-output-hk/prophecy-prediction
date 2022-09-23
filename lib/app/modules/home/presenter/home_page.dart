@@ -43,6 +43,7 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
                       arguments: ProductDetailArguments(
                         name: store.itens[p1].name,
                         assetImage: store.itens[p1].assetImage,
+                        prophecy: store.itens[p1].prophecy,
                       ),
                     ),
                   ),

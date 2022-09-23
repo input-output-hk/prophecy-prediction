@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:squidgame/app/core/round_colors.dart';
 
 import 'splash_store.dart';
@@ -38,10 +37,6 @@ class SplashPageState extends State<SplashPage> {
                 const SizedBox(
                   height: 10,
                 ),
-                Image.asset(
-                  'asset/image/logo_white.png',
-                  width: 100,
-                ),
                 const Spacer(),
                 ClipRect(
                   child: BackdropFilter(
@@ -57,22 +52,24 @@ class SplashPageState extends State<SplashPage> {
                         color: Colors.grey.withOpacity(.4),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 14, vertical: 12),
                         child: Column(
                           children: [
                             const SizedBox(height: 20),
                             Hero(
                               tag: 'splash',
                               child: Image.asset(
-                                'asset/image/everything.png',
+                                'asset/image/logo_white.png',
                                 width: 220,
                               ),
                             ),
                             const Spacer(),
                             Text(
-                              'Shop your davourite toys and outfits of the Squid Game on the go!',
+                              'Predict your favourite prophecies!',
                               textAlign: TextAlign.center,
-                              style: GoogleFonts.poppins(fontSize: 14, color: Colors.white),
+                              style: const TextStyle(
+                                  fontSize: 36, color: Colors.white),
                             ),
                             const Spacer(),
                             SizedBox(
@@ -87,8 +84,10 @@ class SplashPageState extends State<SplashPage> {
                                   ),
                                 ),
                                 child: Text(
-                                  'Shop Now',
-                                  style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.bold),
+                                  'Predict Now',
+                                  style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
                                 ),
                               ),
                             ),

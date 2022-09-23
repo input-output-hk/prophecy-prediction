@@ -11,7 +11,7 @@ class PinkButtonWidget extends StatelessWidget {
     Key? key,
     required this.child,
     required this.onPressed,
-    this.color = RoundColor.pink,
+    this.color = RoundColor.red,
     this.height = 45,
   }) : super(key: key);
 

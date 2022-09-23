@@ -5,16 +5,40 @@ class HomeStore extends NotifierStore<Exception, int> {
   HomeStore() : super(0);
 
   final List<ProductDetailArguments> itens = [
-    ProductDetailArguments(name: 'Supervisor1 toy', assetImage: 'asset/image/avatar4.png'),
-    ProductDetailArguments(name: 'Front man toy', assetImage: 'asset/image/avatar1.png'),
-    ProductDetailArguments(name: 'Kang Sae-byeok toy', assetImage: 'asset/image/avatar2.png'),
-    ProductDetailArguments(name: 'Doll toy', assetImage: 'asset/image/avatar3.png'),
-    ProductDetailArguments(name: 'Supervisor2 toy', assetImage: 'asset/image/avatar5.png'),
-    ProductDetailArguments(name: 'Supervisor3 toy', assetImage: 'asset/image/avatar6.png'),
+    ProductDetailArguments(
+        name: 'Chapter',
+        assetImage: 'asset/image/avatar4.png',
+        prophecy: 'ToDo Ben'),
+    ProductDetailArguments(
+        name: 'Formal Methods',
+        assetImage: 'asset/image/avatar1.png',
+        prophecy: 'ToDo James'),
+    ProductDetailArguments(
+        name: 'Cryptogophy',
+        assetImage: 'asset/image/avatar2.png',
+        prophecy: 'ToDo Inigo'),
+    ProductDetailArguments(
+        name: 'Cardano',
+        assetImage: 'asset/image/avatar3.png',
+        prophecy: 'ToDo Duncan'),
+    ProductDetailArguments(
+        name: 'Atala',
+        assetImage: 'asset/image/avatar5.png',
+        prophecy: 'ToDo Ben'),
+    ProductDetailArguments(
+        name: 'Lace',
+        assetImage: 'asset/image/avatar6.png',
+        prophecy: 'ToDo Bruno'),
   ];
 
   final List<ProductDetailArguments> itens2 = [
-    ProductDetailArguments(name: 'Collector outfit', assetImage: 'asset/image/recent1.png'),
-    ProductDetailArguments(name: 'Doll', assetImage: 'asset/image/recent2.png'),
+    ProductDetailArguments(
+        name: 'Forums',
+        assetImage: 'asset/image/recent1.png',
+        prophecy: 'ToDo Ger'),
+    ProductDetailArguments(
+        name: 'Concur',
+        assetImage: 'asset/image/recent2.png',
+        prophecy: 'ToDo Kelly'),
   ];
 }
